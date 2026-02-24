@@ -1,0 +1,95 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "verl"
+version = "0.5.0.dev"
+description = "Versatile Reinforcement Learning toolkit for Search-R1 style agents"
+requires-python = "==3.12.11"
+dependencies = [
+    "accelerate>=0.30",
+    "aiohttp>=3.9",
+    "cachetools>=5.3",
+    "datasets>=2.19",
+    "einops>=0.6",
+    "fastapi>=0.111",
+    "fastmcp>=0.3",
+    "filelock>=3.13",
+    "huggingface-hub>=0.23",
+    "httpx>=0.27",
+    "hydra-core>=1.3",
+    "msgspec>=0.18",
+    "numpy>=1.25",
+    "omegaconf>=2.3",
+    "packaging>=23.1",
+    "pandas>=2.0",
+    "peft>=0.11",
+    "pillow>=10.0",
+    "psutil>=5.9",
+    "pydantic>=2.5",
+    "pylatexenc>=2.10",
+    "pyzmq>=25.1",
+    "ray[default]>=2.10",
+    "regex>=2023.12",
+    "requests>=2.31",
+    "safetensors>=0.4",
+    "sglang[all]>=0.4",
+    "sympy>=1.12",
+    "tensorboard>=2.14",
+    "tensordict>=0.4",
+    "torch==2.7.1",
+    "torchvision",
+    "torchdata>=0.7",
+    "tqdm>=4.66",
+    "transformers>=4.41,<5",
+    "trl>=0.9",
+    "uvicorn>=0.30",
+    "wandb>=0.16",
+    "aiohttp-cors>=0.8.1",
+    "codetiming>=1.4.0",
+    "hf-transfer>=0.1.9",
+    "torch-memory-saver>=0.0.8",
+    "openai>=1.107.3",
+    "debugpy>=1.8.17",
+    "nvidia-ml-py>=13.580.82",
+    "flash_attn==2.8.1",
+]
+
+[project.optional-dependencies]
+retriever = [
+    "faiss-cpu==1.8.0",
+    "pyserini>=0.36",
+]
+logging = [
+    "mlflow>=2.12",
+    "swanlab>=0.4",
+    "clearml>=1.15",
+    "trackio>=0.1",
+    "weave>=0.50",
+]
+evaluation = [
+    "math-verify>=0.2",
+    "openai>=1.14",
+]
+megatron = [
+    "apex>=0.1; sys_platform == 'linux' and platform_machine == 'x86_64'",
+    "cupy-cuda12x>=13; sys_platform == 'linux' and platform_machine == 'x86_64'",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["verl*"]
+
+[tool.uv]
+environments = [
+    "sys_platform == 'darwin'",
+    "sys_platform == 'linux' and platform_machine == 'x86_64'",
+]
+
+
+[tool.uv.extra-build-dependencies]
+flash-attn = [{ requirement = "torch", match-runtime = true }]
+
+[tool.uv.extra-build-variables]
+flash-attn = { FLASH_ATTENTION_SKIP_CUDA_BUILD = "TRUE" }
