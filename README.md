@@ -2,7 +2,8 @@
 
 This repository contains the codebase for TIPS, a `verl`-based project for Search-R1 style RL training with tool use (multi-turn retrieval, PPO/GRPO training, and validation workflows).
 
-ICLR 2026 poster: [https://openreview.net/pdf?id=eBMOr6a84z](https://openreview.net/pdf?id=eBMOr6a84z)
+[ICLR 2026 poster](https://openreview.net/pdf?id=eBMOr6a84z)
+[Arxiv](https://arxiv.org/abs/2603.22293)
 
 This README is written as a release-oriented guide:
 - install requirements
