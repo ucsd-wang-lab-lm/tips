@@ -10,12 +10,6 @@ This README is written as a release-oriented guide:
 - switch reward managers and key params
 - understand core code paths for experiments
 
-## Privacy and release notes
-
-- Do not commit secrets (for example `WANDB_API_KEY`).
-- Do not commit private filesystem paths (for example `/mnt/weka/...`).
-- Use environment variables for all cluster-specific settings.
-- Release-ready examples are in `examples/release/`.
 
 ## Requirements
 
